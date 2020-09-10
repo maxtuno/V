@@ -26,6 +26,7 @@ struct Solver {
 pub mut:
 	n          int
 	m          int
+	t          int
 	assignment []bool
 	optimal    []bool
 	clauses    [][]int
@@ -44,11 +45,14 @@ fn is_satisfied(clause []int, solver Solver) bool {
 	return false
 }
 
-fn oracle(mut solver Solver) int {
+fn oracle(mut solver Solver, glb int) int {
 	mut unsat := 0
 	for clause in solver.clauses {
 		if !is_satisfied(clause, solver) {
 			unsat++
+			if unsat > glb {
+				return unsat
+			}
 		}
 	}
 	return unsat
@@ -74,7 +78,7 @@ fn solve(mut solver Solver) bool {
 			for j in 0 .. solver.n {
 				oo:
 				step(i, j, mut solver)
-				loc = oracle(mut solver)
+				loc = oracle(mut solver, glb)
 				if loc < glb {
 					glb = loc
 					if glb < cur {
@@ -144,12 +148,17 @@ fn load_cnf(contents string, mut solver Solver) {
 fn main() {
 	println('c O. Riveros Polynomial HESS black-box Algorithm on MaxSAT or incomplete SAT Solver. http://www.peqnp.com')
 	println('c The PCP theorem implies that there exists an ε > 0 such that (1-ε)-approximation of MAX-3SAT is NP-hard.')
+	println('c usage: ./hess <cnf> [target (default=0)]')
 	mut path := os.args[1].str()
 	contents := os.read_file(path) or {
 		println('failed to open $path')
 		return
 	}
-	mut solver := Solver{0, 0, []}
+	mut t := 0
+	if os.args.len == 3 {
+		t = os.args[2].int()
+	}
+	mut solver := Solver{0, 0, t, []}
 	load_cnf(contents, mut solver)
 	if solve(mut solver) {
 		print('s SATISFIABLE\nv ')
