@@ -71,12 +71,13 @@ fn step(i, j int, mut solver Solver) {
 fn solve(mut solver Solver) bool {
 	mut loc := 0
 	mut cur := solver.clauses.len
+	o:
 	for clause in solver.clauses {
 		mut glb := solver.clauses.len
-		o:
+		oo:
 		for i in 0 .. solver.n {
 			for j in 0 .. solver.n {
-				oo:
+				ooo:
 				step(i, j, mut solver)
 				loc = oracle(mut solver, glb)
 				if loc < glb {
@@ -92,7 +93,7 @@ fn solve(mut solver Solver) bool {
 					}
 					goto oo
 				} else if loc > glb {
-					goto oo
+					goto ooo
 				}
 			}
 		}
