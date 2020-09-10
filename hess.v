@@ -85,7 +85,7 @@ fn solve(mut solver Solver) bool {
 						cur = glb
 						println('o $glb')
 						solver.optimal = solver.assignment
-						if glb == 0 {
+						if glb <= solver.t {
 							return true
 						}
 						goto o
