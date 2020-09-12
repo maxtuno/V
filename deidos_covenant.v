@@ -18,6 +18,7 @@ SOFTWARE.
 */
 // https://twitter.com/maxtuno
 // https://github.com/www-PEQNP-science/DEIDOS
+// https://twitter.com/maxtuno/status/1304807186510553088
 import os
 import math
 
