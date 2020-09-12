@@ -17,7 +17,7 @@ Deidos covenant is an algorithm to find all the solutions to a problem of "Sum o
 
 The algorithm out the explicit solution and/or complement, are "quivalents" or complementary.
 
-usage : ./deidos_covenant <instance>
+usage : ./deidos_covenant instance
   
 Format
 
