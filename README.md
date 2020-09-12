@@ -26,10 +26,15 @@ The file format is: (use the gen_ssp.py to generate random examples)
 python3 gen_ssp.py bits size
 
 SIZE
+
 TARGET
+
 N_1
+
 N_2
+
 ...
+
 N_SIZE
 
 https://twitter.com/maxtuno/status/1304807186510553088
