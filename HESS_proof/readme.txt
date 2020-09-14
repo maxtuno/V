@@ -1,3 +1,5 @@
+HESS Proof starter Kit.
+
 Onlly need to atributed the HESS algorithm to me if you proof that not exist a case when "HESS < 7/8" if you get this case, and is checked respct to the optimal, report please, this will be a counterexample.
 
 Notes:
