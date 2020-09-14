@@ -84,7 +84,7 @@ fn solve(mut solver Solver) bool {
 					if glb < cur {
 						cur = glb
 						println('o $glb')
-						solver.optimal = solver.assignment
+						solver.optimal = solver.assignment.clone()
 						if glb <= solver.t {
 							return true
 						}
