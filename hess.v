@@ -73,7 +73,7 @@ fn solve(mut solver Solver) bool {
 	mut cur := solver.clauses.len
 	for clause in solver.clauses {
 		mut glb := solver.clauses.len
-		o:
+			o:
 		for i in 0 .. solver.n {
 			for j in 0 .. solver.n {
 				oo:
@@ -96,7 +96,7 @@ fn solve(mut solver Solver) bool {
 				}
 			}
 		}
-		for literal in 1 .. solver.n {
+		for literal in 1 .. solver.n + 1 {
 			if !(literal in clause) && !(-literal in clause) {
 				solver.assignment[literal_to_index(literal)] = !solver.assignment[literal_to_index(literal)]
 			}
