@@ -128,8 +128,8 @@ fn main() {
 	one := big.from_int(1)
 	two := big.from_int(2)
 	nvs := big.from_int(solver.n)
+	mut n := state
 	for {
-		mut n := state
 		for _ in 0 .. solver.n {
 			solver.assignment << (n % two).int() == 1
 			n = n / two
