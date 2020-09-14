@@ -14,3 +14,6 @@ python3 gen.py 3 11 50 > pq.cnf
 python3 test.py pq.cnf 11
 
 see results
+
+ref:
+https://twitter.com/maxtuno
