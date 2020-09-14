@@ -124,12 +124,12 @@ fn main() {
 	}
 	mut solver := Solver{0, 0, 0, [], []}
 	load_cnf(contents, mut solver)
-	state := big.from_int(0)
+	mut state := big.from_int(0)
 	one := big.from_int(1)
 	two := big.from_int(2)
 	nvs := big.from_int(solver.n)
-	mut n := state
 	for {
+		mut n := state
 		for _ in 0 .. solver.n {
 			solver.assignment << (n % two).int() == 1
 			n = n / two
@@ -148,8 +148,8 @@ fn main() {
 			println(0)
 			break
 		}
-		n = n + one
-		if big.cmp(n, big.pow(two, nvs)) >= 0 {
+		state = state + one
+		if big.cmp(state, big.pow(two, nvs)) >= 0 {
 			println('s UNSATISFIABLE')
 		}
 	}
