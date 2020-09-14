@@ -69,7 +69,7 @@ fn hess(mut solver Solver) f64 {
 			if loc < glb {
 				glb = loc
 				ready = false
-				solver.optimal = solver.assignment
+				solver.optimal = solver.assignment.clone()
 				if glb == 0 {
 					break
 				}
