@@ -73,7 +73,7 @@ fn solve(mut solver Solver) bool {
 	mut cur := solver.clauses.len
 	for clause in solver.clauses {
 		mut glb := solver.clauses.len
-			o:
+		o:
 		for i in 0 .. solver.n {
 			for j in 0 .. solver.n {
 				oo:
