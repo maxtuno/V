@@ -17,3 +17,11 @@ see results
 
 ref:
 https://twitter.com/maxtuno
+
+* => http://www.cs.umd.edu/~gasarch/BLOGPAPERS/max3satl.pdf
+
+https://en.wikipedia.org/wiki/MAX-3SAT
+http://pages.cs.wisc.edu/~dieter/Courses/2008s-CS880/Scribes/lecture17.pdf
+http://pages.cs.wisc.edu/~dieter/Courses/2008s-CS880/Scribes/lecture18.pdf
+http://www.cs.cmu.edu/~venkatg/pubs/papers/nm-sat.pdf
+https://lucatrevisan.github.io/teaching/cs172-15/notepcp.pdf
