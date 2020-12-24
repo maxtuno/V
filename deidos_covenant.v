@@ -54,7 +54,7 @@ fn read(mut tape Tape) int {
 	return tape.ram[tape.idx]
 }
 
-fn state(s, r u64, mut reg Registers) {
+fn state(s u64, r u64, mut reg Registers) {
 	a := u64(math.abs(reg.q - s))
 	b := u64(math.abs(reg.p - r))
 	reg.loc = u64(math.min(a, b))
@@ -64,7 +64,7 @@ fn state(s, r u64, mut reg Registers) {
 	}
 }
 
-fn deidos(uu []u64, idx int, u, s, r u64, mut vv Tape, mut reg Registers) {
+fn deidos(uu []u64, idx int, u u64, s u64, r u64, mut vv Tape, mut reg Registers) {
 	reg.cnt++
 	state(s, r, mut reg)
 	if reg.loc == 0 {
