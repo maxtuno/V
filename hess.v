@@ -58,7 +58,7 @@ fn oracle(mut solver Solver, glb int) int {
 	return unsat
 }
 
-fn step(i, j int, mut solver Solver) {
+fn step(i int, j int, mut solver Solver) {
 	if solver.assignment[i] == solver.assignment[j] {
 		solver.assignment[i] = !solver.assignment[j]
 	} else {
@@ -73,8 +73,7 @@ fn solve(mut solver Solver) bool {
 	mut cur := solver.clauses.len
 	for clause in solver.clauses {
 		mut glb := solver.clauses.len
-		o:
-		for i in 0 .. solver.n {
+		o: for i in 0 .. solver.n {
 			for j in 0 .. solver.n {
 				oo:
 				step(i, j, mut solver)
@@ -158,7 +157,7 @@ fn main() {
 	if os.args.len == 3 {
 		t = os.args[2].int()
 	}
-	mut solver := Solver{0, 0, t, []}
+	mut solver := Solver{0, 0, t, [], [], []}
 	load_cnf(contents, mut solver)
 	if solve(mut solver) {
 		print('s SATISFIABLE\nv ')
